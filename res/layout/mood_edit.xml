@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:text="心情"
+	    />
+	<EditText 
+		android:id="@+id/mood" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="时间" 
+		android:layout_width="match_parent" 
+		android:layout_height="wrap_content"
+		/>
+	<DatePicker
+		android:layout_width="match_parent" 
+		android:layout_height="wrap_content" 
+		android:lines="5" 
+		android:gravity="top" 
+		android:id="@+id/note"></DatePicker>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+		<Button android:text="@string/sumbit" android:id="@+id/submit" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+		<Button android:text="@string/cancel" android:id="@+id/cancel" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+	</LinearLayout>
+		
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">随心情</string>
+    <string name="sumbit">提交</string>
+    <string name="cancel">取消</string>
+    <string name="menu_write_mood">写心情</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_edit_mood">改变它</string>
+    <string name="menu_delete_mood">忘记它</string>
+</resources>
