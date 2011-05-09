@@ -37,7 +37,7 @@ public class MoodList extends ListActivity {
 
 	private static final int FIRST_ORDER = ContextMenu.FIRST;
 
-	private MyMoodDbAdapter mdbAdapter;
+	private MyMoodDbAdapter dbHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,11 @@ public class MoodList extends ListActivity {
 
 		Log.d(TAG, "Creating database");
 
-		mdbAdapter = new MyMoodDbAdapter(this);
-		mdbAdapter.open();
+		dbHelper = new MyMoodDbAdapter(this);
+		dbHelper.open();
+
+		fillData();
+		registerForContextMenu(getListView());
 	}
 
 	@Override
@@ -66,7 +69,7 @@ public class MoodList extends ListActivity {
 	 * Call Database to fetch all data. Then fill it to view.
 	 */
 	private void fillData() {
-		Cursor moodsCursor = mdbAdapter.fetchAllMoods();
+		Cursor moodsCursor = dbHelper.fetchAllMoods();
 		startManagingCursor(moodsCursor);
 
 		String[] from = new String[] { MyMoodDbAdapter.KEY_ICON,
@@ -84,6 +87,7 @@ public class MoodList extends ListActivity {
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
+		Log.d(TAG, "creating context menu");
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.add(CONTEXT_MENU_GROUP, EDIT_ID, FIRST_ORDER,
 				R.string.menu_edit_mood);
@@ -127,7 +131,6 @@ public class MoodList extends ListActivity {
 				Intent i = new Intent();
 				i.setClass(MoodList.this, MoodEdit.class);
 				startActivityForResult(i, 0);
-				finish();
 				break;
 			case ABOUT_ID:
 			}

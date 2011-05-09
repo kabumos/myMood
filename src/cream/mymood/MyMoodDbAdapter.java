@@ -35,9 +35,9 @@ public class MyMoodDbAdapter {
 	private static final int DATABASE_VERSION = 1;
 
 	private static final String DATABASE_CREATE = "CREATE TABLE "
-			+ DATABASE_TABLE + "(" + KEY_ROWID
-			+ "INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_ICON + "TEXT, "
-			+ KEY_MOOD + "TEXT NOT NULL, " + KEY_TIME + "INTEGER NOT NULL);";
+			+ DATABASE_TABLE + " (" + KEY_ROWID
+			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_ICON + " TEXT, "
+			+ KEY_MOOD + " TEXT NOT NULL, " + KEY_TIME + " INTEGER NOT NULL);";
 
 	private final Context mCtx;
 
@@ -54,7 +54,7 @@ public class MyMoodDbAdapter {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w(TAG, "Upgrading database from version" + oldVersion + " to "
+			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 			db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 		}
